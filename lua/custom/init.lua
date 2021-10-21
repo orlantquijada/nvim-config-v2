@@ -33,6 +33,9 @@ hooks.add("setup_mappings", function(map)
 
    -- vim fugitive
    map("n", "<leader>gs", ":G<CR>")
+
+   -- Trouble
+   map("n", "<leader>t", ":TroubleToggle<CR>")
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
@@ -61,6 +64,14 @@ hooks.add("install_plugins", function(use)
    use {
       "tpope/vim-fugitive",
       after = "nvim-lspconfig",
+   }
+
+   use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+         require("trouble").setup {}
+      end,
    }
 end)
 
