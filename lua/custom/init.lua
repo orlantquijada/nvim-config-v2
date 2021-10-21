@@ -22,17 +22,17 @@ local hooks = require "core.hooks"
 -- example below:
 
 hooks.add("setup_mappings", function(map)
-  -- general
-  map("n", "<m-j>", ":move .+1<CR>")
-  map("n", "<m-k>", ":move .-2<CR>")
-  map('v', "<m-j>", ":move '>+1<CR>gv=gv")
-  map('v', "<m-k>", ":move '<-2<CR>gv=gv")
+   -- general
+   map("n", "<m-j>", ":move .+1<CR>")
+   map("n", "<m-k>", ":move .-2<CR>")
+   map("v", "<m-j>", ":move '>+1<CR>gv=gv")
+   map("v", "<m-k>", ":move '<-2<CR>gv=gv")
 
-  -- telescope
-  map("n", "<C-P>", ":Telescope find_files <CR>")
+   -- telescope
+   map("n", "<C-P>", ":Telescope find_files <CR>")
 
-  -- vim fugitive
-  map('n', "<leader>gs", ":G<CR>")
+   -- vim fugitive
+   map("n", "<leader>gs", ":G<CR>")
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
@@ -42,29 +42,29 @@ end)
 
 hooks.add("install_plugins", function(use)
    use {
-        "jose-elias-alvarez/null-ls.nvim",
-        after = "nvim-lspconfig",
-        config = function()
-           require("custom.plugin_confs.null-ls").setup()
-        end,
+      "jose-elias-alvarez/null-ls.nvim",
+      after = "nvim-lspconfig",
+      config = function()
+         require("custom.plugin_confs.null-ls").setup(function(client)
+            if client.resolved_capabilities.document_formatting then
+               vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
+            end
+         end)
+      end,
    }
-   
+
    use {
       "tpope/vim-surround",
       after = "nvim-lspconfig",
    }
-   
+
    use {
       "tpope/vim-fugitive",
       after = "nvim-lspconfig",
    }
-
 end)
-
-vim.cmd [[ autocmd BufWritePre *.ts,*.tsx,*.html,*.js,*.jsx,*.json lua vim.lsp.buf.formatting() ]]
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
 -- then source it with
 
 -- require "custom.plugins.mkdir"
-   

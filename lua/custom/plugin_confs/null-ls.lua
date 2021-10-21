@@ -10,7 +10,16 @@ local sources = {
 
    -- JS html css stuff
    b.formatting.prettierd.with {
-      filetypes = { "html", "json", "markdown", "css", "javascript", "javascriptreact", "typescript", "typerscriptreact" },
+      filetypes = {
+         "html",
+         "json",
+         "markdown",
+         "css",
+         "javascript",
+         "javascriptreact",
+         "typescript",
+         "typerscriptreact",
+      },
    },
    b.diagnostics.eslint.with {
       command = "eslint_d",
@@ -23,6 +32,11 @@ local sources = {
    -- Shell
    b.formatting.shfmt,
    b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
+
+   -- Python
+   b.formatting.isort,
+   b.formatting.black,
+   b.diagnostics.flake8,
 }
 
 local M = {}
@@ -35,4 +49,3 @@ M.setup = function(on_attach)
 end
 
 return M
-
