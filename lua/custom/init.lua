@@ -27,6 +27,8 @@ hooks.add("setup_mappings", function(map)
    map("n", "<m-k>", ":move .-2<CR>")
    map("v", "<m-j>", ":move '>+1<CR>gv=gv")
    map("v", "<m-k>", ":move '<-2<CR>gv=gv")
+   map("n", "<leader><space>", ":b#<CR>") -- <C-6> or <C-^> functionality
+   map("n", "<c-Tab>", ":b#<CR>") -- <C-6> or <C-^> functionality
 
    -- telescope
    map("n", "<C-P>", ":Telescope find_files <CR>")
@@ -36,6 +38,17 @@ hooks.add("setup_mappings", function(map)
 
    -- Trouble
    map("n", "<leader>t", ":TroubleToggle<CR>")
+
+   -- Bufferline
+   map("n", "<m-1>", ":BufferLineGoToBuffer 1<CR>")
+   map("n", "<m-2>", ":BufferLineGoToBuffer 2<CR>")
+   map("n", "<m-3>", ":BufferLineGoToBuffer 3<CR>")
+   map("n", "<m-4>", ":BufferLineGoToBuffer 4<CR>")
+   map("n", "<m-5>", ":BufferLineGoToBuffer 5<CR>")
+   map("n", "<m-6>", ":BufferLineGoToBuffer 6<CR>")
+   map("n", "<m-7>", ":BufferLineGoToBuffer 7<CR>")
+   map("n", "<m-8>", ":BufferLineGoToBuffer 8<CR>")
+   map("n", "<m-9>", ":BufferLineGoToBuffer 9<CR>")
 end)
 
 -- To add new plugins, use the "install_plugin" hook,

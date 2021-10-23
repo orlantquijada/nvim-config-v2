@@ -34,7 +34,6 @@ local sources = {
    b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
    -- Python
-   b.formatting.isort,
    b.formatting.black,
    b.diagnostics.flake8,
 }
