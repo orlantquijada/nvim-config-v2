@@ -24,6 +24,8 @@ local sources = {
    b.diagnostics.eslint.with {
       command = "eslint_d",
    },
+   -- enable if you want to auto organize tailwind classes on save
+   -- b.formatting.rustywind, -- tailwind
 
    -- Lua
    b.formatting.stylua,
