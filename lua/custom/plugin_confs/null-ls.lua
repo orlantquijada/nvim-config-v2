@@ -18,7 +18,7 @@ local sources = {
          "javascript",
          "javascriptreact",
          "typescript",
-         "typerscriptreact",
+         "typescriptreact",
       },
    },
    b.diagnostics.eslint.with {
