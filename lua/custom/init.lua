@@ -28,7 +28,6 @@ hooks.add("setup_mappings", function(map)
    map("v", "<m-j>", ":move '>+1<CR>gv=gv")
    map("v", "<m-k>", ":move '<-2<CR>gv=gv")
    map("n", "<leader><space>", ":b#<CR>") -- <C-6> or <C-^> functionality
-   map("n", "<c-Tab>", ":b#<CR>") -- <C-6> or <C-^> functionality
 
    -- telescope
    map("n", "<C-P>", ":Telescope find_files <CR>")
